@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Xamarin_Examples.Functions.ControlsPage">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <StackLayout Grid.Row="0" Orientation="Horizontal">
+      <Switch IsToggled="True" x:Name="switch" VerticalOptions="Start"/>
+      <Label Text="Content" 
+             VerticalOptions="Start"
+             IsVisible="{Binding Source={x:Reference switch}, Path=IsToggled}"/>
+    </StackLayout>
+    <StackLayout Grid.Row="1">
+      <Slider x:Name="slider" Maximum="255" Minimum="0"/>
+      <Label Text="{Binding Source={x:Reference slider}, Path=Value, StringFormat='{0:N0}'}"/>
+    </StackLayout>
+    <StackLayout Grid.Row="2" Orientation="Horizontal">
+      <Stepper x:Name="stepper" Increment="2"/>
+      <Label Text="{Binding Source={x:Reference stepper}, Path=Value}" />
+    </StackLayout>
+    <StackLayout Grid.Row="3">
+      <Entry Keyboard="Numeric" Placeholder="Phone" />
+      <Entry IsPassword="True" Placeholder="Password" 
+             TextChanged="Handle_TextChanged" 
+             Completed="Handle_Completed" />
+      <Editor />
+      <Label x:Name="entry_label"/>
+    </StackLayout>
+    <StackLayout Grid.Row="4">
+      <Picker x:Name="contactMethods" Title="Contact Method" 
+              SelectedIndexChanged="Handle_SelectedIndexChanged">
+        <!--<Picker.Items>
+          <x:String>SMS</x:String>
+          <x:String>Email</x:String>
+        </Picker.Items>-->
+      </Picker>
+    </StackLayout>
+    <StackLayout Grid.Row="5">
+      <DatePicker Date="{x:Static sys:DateTime.Today}" Format="d MMM yyyy" 
+                  DateSelected="Handle_DateSelected"/>
+      <TimePicker Time="13:00" />
+    </StackLayout>
+  </Grid>
+</ContentPage>

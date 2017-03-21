@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin_Examples.StackPage"
+             Padding="0,20,0,0">
+  <StackLayout BackgroundColor="Blue" VerticalOptions="Center" HorizontalOptions="Center" Spacing="20"
+               Padding="40" Orientation="Horizontal">
+    <StackLayout>
+      <Image Source="http://placehold.it/100x100" />
+      <Label Text="Label 1" BackgroundColor="Silver"/>
+    </StackLayout>    
+    <Label Text="Label 2" BackgroundColor="Silver"/>
+    <Label Text="Label 3" BackgroundColor="Silver"/>
+  </StackLayout>
+  <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />-->
+
+</ContentPage>
